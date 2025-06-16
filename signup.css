@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Meow+Script&display=swap');
+*{
+    padding: 0px;
+    margin: 0px;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(45deg,rgb(40, 46, 61),royalblue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#container{
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    border-radius: 1vw;
+    box-shadow: 5px 5px 5px black;
+    display: flex;
+    overflow: hidden;
+    border: 3px solid white;
+}
+#imageContainer{
+    width: 50%;
+    height: 100%;
+    background-image: url(../signup/assests/pngwing.com\ \(3\).png);
+    background-size: 100% 100%;
+    background-position: center;
+    transition: all 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#imageContainer:hover{
+    background-size: 110% 110%;
+}
+#formContainer{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    font-family: "Meow Script",serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 4vw;
+    color: orangered;
+    text-shadow: 1px 1px 5px black;
+}
+p{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2vw;
+    color: white;
+    width: 70%;
+    text-align: justify;
+    text-indent: 20px;
+    text-shadow: 1px 1px 5px black;
+}
+table,th{
+    width: 100%;
+    height: 120%;
+    padding-top: 0.2vw;
+}
+table{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+}
+textarea{
+    width: 90%;
+    padding: 5px;
+    background-color: royalblue;
+    border: none;
+    outline: none;
+    border-radius: 0.3vw;
+    color: white;
+    font-weight: bold;
+}
+#gender{
+    width: 200%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#aadhra,#amount{
+    width: 98%;
+    padding: 5px;
+    background-color: royalblue;
+    border: none;
+    outline: none;
+    border-radius: 0.3vw;
+    color: white;
+    font-weight: bold;
+}
+.inp{
+    padding: 5px;
+    background-color: royalblue;
+    border: none;
+    outline: none;
+    border-radius: 0.3vw;
+    color: white;
+    font-weight: bold;
+}
+.inp::placeholder,textarea::placeholder,#aadhar::placeholder,#amount::placeholder{
+    color: white;
+    font-weight: bold;
+}
+#heading,.genHeading{
+    font-size: 2vw;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    letter-spacing: 0.3vw;
+    color: orangered;
+}
+.genHeading{
+    font-size: 1.5vw;
+    letter-spacing: 0vw;
+}
+a{
+    color: black;
+    text-decoration: none;
+    letter-spacing: 0.3vw;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+a:hover{
+    color:blue
+}
+#signupButton{
+    width: 60%;
+    height: 3vw;
+    background-color: orangered;
+    border: none;
+    outline: none;
+    font-size: 2vw;
+    text-transform: capitalize;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 1vw;
+    border-radius: 1vw;
+    transition: all 0.5s;
+}
+#signupButton:hover{
+    color: orangered;
+    background-color: white;
+    border: 1px solid orangered;
+    box-shadow: 0.5vw 0.5vw 0.5vw black;
+}
