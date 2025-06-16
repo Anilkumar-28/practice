@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>todolist</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+      }
+      .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-image: url("../entertainment/pexels-cottonbro-5990265.jpg");
+        background-size: cover;
+        background-position: center;
+        filter: blur(2px);
+        z-index: -1;
+      }
+      body {
+        display: grid;
+        height: 100vh;
+        place-content: center;
+      }
+      .container {
+        width: 80vw;
+        height: 80vh;
+        position: relative;
+      }
+      h2 {
+        font-size: 2em;
+        font-family: cursive;
+        text-align: start;
+        color: midnightblue;
+      }
+      #task-count {
+        font-size: 1.2em;
+        color: darkslateblue;
+        margin-top: 10px;
+      }
+      .inputBox {
+        width: 50vw;
+        padding: 10px;
+        position: absolute;
+        top: 18%;
+        left: 12%;
+      }
+      #inputField {
+        background-color: whitesmoke;
+        font-size: 1.5em;
+        /* padding: 5px 0px 5px 20px; */
+        /* margin: 5px; */
+        width: 100%;
+        border-radius: 20px;
+        margin-left: 10px;
+      }
+      #submitBtn {
+        background-color: gray;
+        width: 15%;
+        position: absolute;
+        top: 18%;
+        left: 100%;
+        font-size: 1.5em;
+        padding: 1px;
+        border-radius: 20px;
+      }
+      #tasks-list {
+        list-style-type: none;
+        position: absolute;
+        top: 35%;
+        left: 30%;
+        line-height: 2em;
+      }
+      #tasks-list li {
+        border: none;
+        font-size: x-large;
+        /* width: 100%; */
+        margin-bottom: 5px;
+        padding-left: 10px;
+        position: relative;
+      }
+      .cross {
+        text-decoration: line-through;
+        font-style: italic;
+      }
+      #inputField:hover {
+        transform: scale(1.02);
+      }
+      #submitBtn:hover {
+        transform: scale(1.1);
+        background-color: chartreuse;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="container">
+      <h2>To Do List</h2>
+      <h3 id="task-count">Tasks: 0</h3>
+      <div class="inputBox">
+        <input
+          type="text"
+          name="inputField"
+          id="inputField"
+          title="Task"
+          placeholder="Enter Task"
+        />
+        <button type="submit" id="submitBtn">Add</button>
+      </div>
+      <ol id="tasks-list">
+        <!-- <li>One</li>
+        <li>Two</li> -->
+      </ol>
+    </div>
+    <script>
+      function todoApp() {
+        const tasksList = document.querySelector("#tasks-list");
+        const submitBtn = document.querySelector("#submitBtn");
+        const inputText = document.querySelector("#inputField");
+        const taskCount = document.querySelector("#task-count");
+        
+        //for task count
+        function updateTaskCount() {
+          const total = document.querySelectorAll("#tasks-list li").length;
+          taskCount.textContent = `Tasks: ${total}`;
+        }
+        submitBtn.addEventListener("click", (e) => {
+          const task = inputText.value.trim();
+          if (!task) {
+            alert("Enter some task");
+          } else if (task.length < 5) {
+            alert("Must be 5 or more characters");
+          } else {
+            e.preventDefault();
+            const item = document.createElement("li");
+            item.style.display = "flex";
+            item.style.alignItems = "center";
+            item.style.justifyContent = "space-between";
+            item.style.gap = "10px";
+            const box = document.createElement("input");
+            box.type = "checkbox";
+            box.style.marginRight = "10px";
+            const taskText = document.createElement("span");
+            taskText.textContent = task;
+            taskText.style.flexGrow = "1";
+            const delBtn = document.createElement("button");
+            delBtn.textContent = "🗑️";
+            delBtn.style.color = "white";
+            // delBtn.style.background = "black";
+            delBtn.style.border = "none";
+            delBtn.style.borderRadius = "5px";
+            delBtn.style.padding = "0px";
+            item.appendChild(box);
+            item.appendChild(taskText);
+            item.appendChild(delBtn);
+            tasksList.appendChild(item);
+
+            //enter for submit
+            inputText.addEventListener("keypress", function (e) {
+              if (e.key === "Enter") submitBtn.click();
+            });
+
+            //delete item
+            delBtn.addEventListener("click", () => {
+              item.remove();
+              updateTaskCount();
+            });
+
+            //checkbox fucntion
+            box.addEventListener("click", () => {
+              if (box.checked) {
+                taskText.classList.add("cross");
+              } else {
+                taskText.classList.remove("cross");
+              }
+            });
+
+            inputText.value = "";
+            updateTaskCount();
+            sessionStorage.setItem("tasks", tasksList.innerHTML);
+            let obj = sessionStorage.getItem("tasks");
+            console.log(obj);
+          }
+        });
+      }
+      todoApp();
+    </script>
+  </body>
+</html>

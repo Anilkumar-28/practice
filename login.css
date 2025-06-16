@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans+Semis+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap");
+*{
+    padding: 0px;
+    margin: 0px;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(75deg,royalblue,skyblue);
+    background-size: 100% 100%;
+    background-position: center;
+}
+#container{
+    width: 90%;
+    height: 90vh;
+    border: 0.5vw solid white;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px black;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: brightness(60%) blur(20px);
+}
+#userLogin,#adminLogin{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#adminLogin{
+    left: 100%;
+}
+img{
+    width: 55%;
+    filter: drop-shadow(5px 5px 5px black);
+}
+#user_Login_Form,#user_Login_Image,#admin_Login_Image,#admin_Login_Form{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+form{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.smallHeading{
+    font-size: 3vw;
+    font-family: "Encode Sans Condensed",serif;
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: 1vw;
+    color: white;
+    text-shadow: 0.2vw 0.2vw 0.2vw black;
+}
+.input,.input::placeholder{
+    width: 80%;
+    height: 2.5vw;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid skyblue;
+    color: white;
+    font-size: 2vw;
+    letter-spacing: 0.3vw;
+    font-family: "Encode Sans Condensed",serif;
+    font-weight: 700;
+    font-style: normal;
+    text-shadow: 0.2vw 0.2vw 0.2vw black;
+}
+.LoginButton{
+    width: 60%;
+    height: 3vw;
+    border-radius: 1vw;
+    border: none;
+    outline: none;
+    box-shadow: 5px 5px 5px black;
+    background-image: linear-gradient(75deg,purple,black,darkblue,cyan,purple);
+    background-size: 1800px;
+    background-position: 1200px;
+    color: white;
+    font-size: 2vw;
+    font-family: "Encode Sans Condensed",serif;
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: 1vw;
+    transition: all 1s;
+    padding-bottom: 1vw;
+}
+.LoginButton:hover{
+    transform: scale(1.1);
+    background-position: 0px;
+    border: 2px solid white;
+}
+.bigText{
+    font-family: "Encode Sans Condensed",serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 6vw;
+    background-image: linear-gradient(75deg,royalblue,skyblue,white,skyblue,royalblue);
+    background-position: 1800px;
+    background-size: 1800px;
+    background-clip: text;
+    color: transparent;
+    animation: textAnimation 5s linear infinite both;
+    -webkit-text-stroke: 2px white;
+}
+a{
+        color: black;
+        text-decoration: none;
+        letter-spacing: 0.3vw;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+a:hover{
+    color:blue
+}
+@keyframes textAnimation{
+    from{
+        background-position: 1800px;
+    }
+    to{
+        background-position: 0px;
+    }
+}
+.adminButton{
+    background-image: linear-gradient(75deb,aqua,black,aqua);
+}
